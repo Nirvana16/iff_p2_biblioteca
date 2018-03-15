@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	<nav class="navbar navbar-inverse" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" 
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+	
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a th:href="@{/}">Conheça<span class="sr-only">(current)</span></a></li>
+					<li><a th:href="@{/localizacao}">Fale Conosco<span class="sr-only">(current)</span></a></li>
+					<li><a th:href="@{/livros}">Livros </a></li>
+					<li><a th:href="@{/escritores}">Escritores</a></li>
+					<li><a th:href="@{/index}">Editoras</a></li>
+				</ul>
+				
+				<th:block sec:authorize="isAuthenticated()">
+					<form th:action="@{/logout}" method="post"
+						class="navbar-form navbar-right" title="Logout" rel="tooltip">
+						<button class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+						</button>
+					</form>
+					
+					<ul class="nav navbar-nav navbar-right">
+						<li sec:authorize="hasAuthority('ADMIN')"> 
+							<span sec:authentication="name">username</span>
+							<span sec:authentication="principal.authorities">roles</span>
+						</li>
+						<li sec:authorize="not(hasAuthority('ADMIN'))"> 
+							<span sec:authentication="name">username</span>
+							<span sec:authentication="principal.authorities">roles</span>
+						</li>
+					</ul>
+				</th:block>
+				<th:block sec:authorize="!isAuthenticated()">
+					<form th:action="@{/login}" method="get" class="navbar-form navbar-right" title="Login" rel="tooltip">
+						<button class="btn btn-default btn-sm">
+							<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+						</button>
+					</form>
+				</th:block>			
+			</div>
+		</div>
+	</nav>
+</html>

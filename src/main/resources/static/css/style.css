@@ -1,0 +1,19 @@
+body, html {
+    height: 100%;
+}
+
+.login-page{
+	/* The image used */
+    background-image: url('/images/fundo.jpg');
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+ 
+}
+

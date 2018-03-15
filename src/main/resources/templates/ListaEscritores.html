@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+	
+<section layout:fragment="conteudo">
+	<div layout:include="MensagemGeral"></div>
+	
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Lista de Escritores</h1>
+			<a class="btn btn-link aw-link-panel" th:href="@{/escritores/novo}">Novo Escritor</a>
+		</div>
+	<div class="panel-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Nacionalidade</th>
+					<th>Data de Nascimento</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="escritor : ${escritores}">
+					<td th:text="${escritor.nome}"></td>
+					<td th:text="${escritor.nacionalidade}"></td>
+					<td th:text="${escritor.dtNascimento}"></td>
+					<td> 
+						<a th:href="@{/escritores/alterar/}+${escritor.idEscritor}" class="glyphicon glyphicon-pencil"></a>
+					</td>
+					<td>
+						<a class="btn btn-link btn-xs" data-toggle="modal"
+								data-target="#confirmacaoExclusaoModal"
+								th:attr="data-codigo=${escritor.idEscritor}, data-descricao=${escritor.nome}, data-model='escritor' "
+								title="Excluir" rel="tooltip" data-placement="top"> <span
+								class="glyphicon glyphicon-remove"></span>						</a> 
+					</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>
+		<div layout:include="DialogoConfirmacaoExclusao"></div>
+	</div>
+</section>
+</html>

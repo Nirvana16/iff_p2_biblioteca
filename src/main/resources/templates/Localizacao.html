@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutPadrao">
+    
+   
+
+	<section layout:fragment="conteudo">
+		<div layout:include="MensagemGeral"></div>
+			<h3>Localização da Livraria!</h3>
+			<div class="row">
+				<div class="col-sm-12">
+					<img  alt="Localizacao"th:src="@{/images/local1.jpeg}"/>
+				</div>
+			</div>
+	
+	</section>
+
+</html>
