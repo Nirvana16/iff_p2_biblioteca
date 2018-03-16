@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="LayoutPadrao">
+    
+   
+
+	<section layout:fragment="conteudo">
+		<div class="row">
+			<div class="col-xs-8">
+				<form class="form-horizontal">
+			 		<div class="form-group">
+					    <label for="nome" class="col-sm-2 control-label" >NOME:</label>
+					    <div class="col-sm-4">
+			    			<input type="text" class="form-control" id="email" placeholder="Nome Completo" />
+			   			 </div>
+			 		 </div>
+				  <div class="form-group">
+				  	<label for="Email" class="col-sm-2 control-label" >E-MAIL:</label>
+				  	<div class="col-sm-4">
+				    	<input type="email" class="form-control" id="email" placeholder="Entre com seu email" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    	<label for="mensagem" class="col-sm-2 control-label" >MENSAGEM:</label>
+				    	<div class="col-sm-4">
+				    		<textarea class="form-control" rows="5" id="comment"></textarea>
+			    		</div>
+			 	  </div>
+			 	  <div class="row">
+				  	<h2 class="col-sm-6 control-label" > Rua luis das Couves 999 - Centro - Campos  - RJ Tel:(22)123456789</h2> 	
+				  </div>
+			 	</form>
+			 </div>
+			 <div class="col-xs-4">
+				<img alt="faleconosco" th:src="@{/images/fora.jpg}" height="442" width="842" align="right" hspace="20"/>
+			</div>
+		</div>	
+	</section>
+
+</html>

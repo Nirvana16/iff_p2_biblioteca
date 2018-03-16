@@ -23,10 +23,10 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li><a th:href="@{/}">Conheça<span class="sr-only">(current)</span></a></li>
-					<li><a th:href="@{/contato}">Fale Conosco<span class="sr-only">(current)</span></a></li>
+					<li><a th:href="@{/localizacao}">Fale Conosco<span class="sr-only">(current)</span></a></li>
 					<li><a th:href="@{/livros}">Livros </a></li>
 					<li><a th:href="@{/escritores}">Escritores</a></li>
-					<li><a th:href="@{/editoras}">Editoras</a></li>
+					<li><a th:href="@{/index}">Editoras</a></li>
 				</ul>
 				
 				<th:block sec:authorize="isAuthenticated()">
@@ -48,7 +48,6 @@
 						</li>
 					</ul>
 				</th:block>
-				
 				<th:block sec:authorize="!isAuthenticated()">
 					<form th:action="@{/login}" method="get" class="navbar-form navbar-right" title="Login" rel="tooltip">
 						<button class="btn btn-default btn-sm ">

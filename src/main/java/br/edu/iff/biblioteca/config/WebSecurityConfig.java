@@ -14,14 +14,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http 
             .authorizeRequests()
-            .antMatchers("/resources/**","/css/**","/fonts/**","/images/**","/js/**","/index","/").permitAll()
+            	.antMatchers("/resources/**","/css/**","/fonts/**"
+            	,"/images/**","/js/**","/index","/","/contato").permitAll()
                 .anyRequest().authenticated()
-                .and()
+            .and()
             .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .and()
+            .and()
+        		.exceptionHandling().accessDeniedPage("/403")
+            .and()
             .logout()
+            	.logoutSuccessUrl("/")
                 .permitAll();
         http.csrf().disable();
     }

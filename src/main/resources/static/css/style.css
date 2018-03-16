@@ -1,14 +1,14 @@
 .login-page{
-	/* The image used */
-    background-image: url('/images/fundo.jpg');
-
-    /* Full height */
+	background-image: url('/images/fundo.jpg');
+	background-repeat: no-repeat;
     height: 100%; 
-
-    /* Center and scale the image nicely */
     background-position: center;
     position: absolute;
     width: 100%;
     left: 0; 
 }
+
+.navbar-brand {
+	padding-top: 2px;
+} 
 
