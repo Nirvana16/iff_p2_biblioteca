@@ -16,8 +16,7 @@
 			<div class="panel-heading">
 				<div class="clearfix">
 					<h1 class="panel-title aw-titulo-panel">Cadastrar Livro</h1>
-					<a class="btn btn-link aw-link-panel" th:href="@{/livros}">Voltar
-						para pesquisa</a>
+					<a class="btn btn-link aw-link-panel" th:href="@{/livros}">Voltar para pesquisa</a>
 				</div>
 			</div>
 
@@ -65,12 +64,16 @@
 					</div>
 				</div>
 				
+				
 				<div class="form-group"
-					th:classappend="${#fields.hasErrors('editoraL')} ? has-error">
-					<label for="nomeL" class="col-sm-2 control-label">Editora</label>
+					th:classappend="${#fields.hasErrors('editora')} ? has-error">
+					<label for="escritor" class="col-sm-2 control-label">Editora:</label>
 					<div class="col-sm-2">
-						<input type="text" class="form-control" id="editora"
-							th:field="*{editoraL}" />
+						<select class="form-control input-sm" th:field="*{editora}">
+							<option value="">Selecione uma Editora</option>
+							<option th:each="editora : ${editora}" th:value="${editora.idEditora}"
+							th:text="${editora.nome}"></option>
+						</select>
 					</div>
 				</div>
 				

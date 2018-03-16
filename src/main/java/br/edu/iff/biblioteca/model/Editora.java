@@ -1,11 +1,14 @@
 package br.edu.iff.biblioteca.model;
 
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -30,7 +33,16 @@ public class Editora {
 	@NotNull(message = "Endereco Inválido")
 	private String endereco;
 	
+	@OneToMany(mappedBy = "escritor", cascade = CascadeType.ALL)
+	private Set<Livro> livros;
 	
+	
+	public Set<Livro> getLivros() {
+		return livros;
+	}
+	public void setLivros(Set<Livro> livros) {
+		this.livros = livros;
+	}
 	public Long getIdEditora() {
 		return idEditora;
 	}

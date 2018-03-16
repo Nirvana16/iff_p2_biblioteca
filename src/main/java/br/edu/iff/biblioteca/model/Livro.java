@@ -29,6 +29,11 @@ public class Livro {
 	@JoinColumn(name = "id_escritor")
 	private Escritor escritor;
 	
+	@NotNull(message = "Editora Inválida")
+	@ManyToOne
+	@JoinColumn(name = "id_editoraLivro")
+	private Editora editoraLivro;
+	
 	@NotEmpty(message="livro Inválido")
 	private String nomeL;
 	
@@ -44,8 +49,15 @@ public class Livro {
 	@NotEmpty(message="ISBN Inválido")
 	private String isbn;
 	
-	@NotEmpty(message="Editora Inválida")
-	private String editoraL;
+//	@NotEmpty(message="Editora Inválida")
+//	private String editoraLivroL;
+	
+	public Editora getEditora() {
+		return editoraLivro;
+	}
+	public void setEditora(Editora editoraLivro) {
+		this.editoraLivro = editoraLivro;
+	}
 	
 	public String getIsbn() {
 		return isbn;
@@ -53,12 +65,12 @@ public class Livro {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	public String getEditoraL() {
-		return editoraL;
-	}
-	public void setEditoraL(String editoraL) {
-		this.editoraL = editoraL;
-	}
+//	public String getEditoraL() {
+//		return editoraLivroL;
+//	}
+//	public void setEditoraL(String editoraLivroL) {
+//		this.editoraLivroL = editoraLivroL;
+//	}
 	public Long getIdLivro() {
 		return idLivro;
 	}

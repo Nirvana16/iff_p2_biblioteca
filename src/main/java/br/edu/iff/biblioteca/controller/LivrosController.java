@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.edu.iff.biblioteca.model.Editora;
 import br.edu.iff.biblioteca.model.Escritor;
 import br.edu.iff.biblioteca.model.Livro;
+import br.edu.iff.biblioteca.repository.Editoras;
 import br.edu.iff.biblioteca.repository.Escritores;
 import br.edu.iff.biblioteca.repository.Livros;
 
@@ -32,6 +34,9 @@ public class LivrosController {
 	@Autowired
 	private Escritores escritor;
 	
+	@Autowired
+	private Editoras editora;
+	
 	@GetMapping("")
 	public ModelAndView listar() {
 		ModelAndView mv = new ModelAndView("ListaLivros");
@@ -43,8 +48,10 @@ public class LivrosController {
 	public ModelAndView novo(){
 		ModelAndView mv = new ModelAndView("FrmLivros");
 		List<Escritor> allEscritor = escritor.findAllOrderByEscritor();
+		List<Editora> allEditora = editora.findAllOrderByEscritor();
 		mv.addObject(new Livro());
 		mv.addObject("escritor", allEscritor); 
+		mv.addObject("editora", allEditora); 
 		return mv;
 		
 	}
@@ -78,11 +85,13 @@ public class LivrosController {
 			HttpServletRequest request, HttpServletResponse response) {
 		
 		List<Escritor> allEscritor = escritor.findAllOrderByEscritor();
+		List<Editora> allEditora = editora.findAllOrderByEscritor();
 		ModelAndView mv = new ModelAndView("FrmLivros");
 		mv.addObject("livros", livros.findAll());
 		Livro livro = livros.findOne(idLivro);
 		mv.addObject(livro);
 		mv.addObject("escritor", allEscritor); 
+		mv.addObject("editora", allEditora); 
 		return mv;
 	}
 	

@@ -18,10 +18,10 @@
 					<tr>
 						<th>Titulo</th>
 						<th>Escritor</th>
+						<th>Editora</th>
 						<th>Valor R$</th>
 						<th>ISBN</th>
 						<th>Data de Lançamento</th>
-						<th>Editora</th>
 						<th>Editar / Excluir</th>
 						
 					</tr>
@@ -30,10 +30,11 @@
 					<tr th:each="livro : ${livros}">
 						<td th:text="${livro.nomeL}">xxx</td>
 						<td th:text="${livro.escritor.nome}">xxxxxx</td>
+						<td th:text="${livro.editora.nome}">xxxxxx</td>
 						<td th:text="${livro.valor}">xx,xxx</td>
 						<td th:text="${livro.isbn}">xxx</td>
-						<td th:text="${livro.dataL}">xxxx-xx-xx</td>
-						<td th:text="${livro.editoraL}">xxx</td>	
+						<td th:text="${livro.dataL}">xxxx-xx-xx</td>								
+						
 						<td><a th:href="@{/livros/alterar/}+${livro.idLivro}"
 							class="glyphicon glyphicon-pencil"></a>
 							<span class="gambiarra">..............</span> 
