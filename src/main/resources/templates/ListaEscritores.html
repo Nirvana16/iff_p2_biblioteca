@@ -10,7 +10,7 @@
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
 			<h1 class="panel-title">Lista de Escritores</h1>
-			<a class="btn btn-link aw-link-panel" th:href="@{/escritores/novo}">Novo Escritor</a>
+			<a class="btn btn-link aw-link-panel" th:href="@{/escritores/novo}">Cadastrar Escritor</a>
 		</div>
 	<div class="panel-body">
 		<table class="table">
@@ -19,6 +19,7 @@
 					<th>Nome</th>
 					<th>Nacionalidade</th>
 					<th>Data de Nascimento</th>
+					<th>Editar / Excluir</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -27,9 +28,12 @@
 					<td th:text="${escritor.nacionalidade}"></td>
 					<td th:text="${escritor.dtNascimento}"></td>
 					<td> 
-						<a th:href="@{/escritores/alterar/}+${escritor.idEscritor}" class="glyphicon glyphicon-pencil"></a>
-					</td>
-					<td>
+						<a th:href="@{/escritores/alterar/}+${escritor.idEscritor}" 
+						class="glyphicon glyphicon-pencil"></a>
+						<span class="gambiarra">..............</span> 
+						<!-- Não me julguem, vou implantar 02 servidores no fim de semana
+								não vou ter tempo pra melhorar isso aqui então sou obrigado
+								a usar uma solução rapida. -->
 						<a class="btn btn-link btn-xs" data-toggle="modal"
 								data-target="#confirmacaoExclusaoModal"
 								th:attr="data-codigo=${escritor.idEscritor}, data-descricao=${escritor.nome}, data-model='escritor' "
