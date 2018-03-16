@@ -3,45 +3,55 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="LayoutPadrao">
-	
+
 <section layout:fragment="conteudo">
 	<div layout:include="MensagemGeral"></div>
-	
+
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
-			<h1 class="panel-title">Lista de Livros</h1>
-			<a class="btn btn-link aw-link-panel" th:href="@{/livros/novo}">Novo Livro</a>
+			<h1 class="panel-title">Listagem de Livros</h1>
+			<a class="btn btn-link aw-link-panel" th:href="@{/livros/novo}">Cadastrar Livros</a>
 		</div>
-	<div class="panel-body">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Data de Nascimento</th>
-					<th>Valor</th>
-					<th colspan="2">Ação</th>
-					
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="livro : ${livros}">
-					<td th:text="${livro.escritor.nome}">xxx@xxx</td>
-					<td th:text="${livro.nome}">xxx</td>
-					<td th:text="${livro.data}">xxxx-xx-xx</td>
-					<td th:text="${livro.valor}">xx,xxx</td>
-					<td> 
-						<a th:href="@{/livros/alterar/}+${livro.idLivro}" class="glyphicon glyphicon-pencil"></a>
-					</td>
-					<td>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Titulo</th>
+						<th>Escritor</th>
+						<th>Valor R$</th>
+						<th>ISBN</th>
+						<th>Data de Lançamento</th>
+						<th>Editora</th>
+						<th>Editar / Excluir</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="livro : ${livros}">
+						<td th:text="${livro.nomeL}">xxx</td>
+						<td th:text="${livro.escritor.nome}">xxxxxx</td>
+						<td th:text="${livro.valor}">xx,xxx</td>
+						<td th:text="${livro.isbn}">xxx</td>
+						<td th:text="${livro.dataL}">xxxx-xx-xx</td>
+						<td th:text="${livro.editoraL}">xxx</td>
+						
+						
+						
+						
+						<td><a th:href="@{/livros/alterar/}+${livro.idLivro}"
+							class="glyphicon glyphicon-pencil"></a>
+							<span class="gambiarra">..............</span> 
+							<!-- Não me julguem, vou implantar 02 servidores no fim de semana
+								não vou ter tempo pra melhorar isso aqui então sou obrigado
+								a usar uma solução rapida. -->
 						<a class="btn btn-link btn-xs" data-toggle="modal"
-								data-target="#confirmacaoExclusaoModal"
-								th:attr="data-codigo=${livro.idLivro}, data-descricao=${livro.nome}, data-model='livro' "
-								title="Excluir" rel="tooltip" data-placement="top"> <span
+							data-target="#confirmacaoExclusaoModal"
+							th:attr="data-codigo=${livro.idLivro}, data-descricao=${livro.nomeL}, data-model='livro' "
+							title="Excluir" rel="tooltip" data-placement="top"> <span
 								class="glyphicon glyphicon-remove"></span>
-						</a> 
-					</td>
-				</tr>
-			</tbody>
+						</a></td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 		<div layout:include="DialogoConfirmacaoExclusao"></div>

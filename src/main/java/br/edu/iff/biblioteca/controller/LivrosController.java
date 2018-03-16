@@ -34,7 +34,7 @@ public class LivrosController {
 	
 	@GetMapping("")
 	public ModelAndView listar() {
-		ModelAndView mv = new ModelAndView("LisLivro");
+		ModelAndView mv = new ModelAndView("ListaLivros");
 		mv.addObject("livros",livros.findAll());
 		return mv;
 	}

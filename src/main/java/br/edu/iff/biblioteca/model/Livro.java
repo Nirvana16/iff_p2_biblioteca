@@ -23,6 +23,7 @@ public class Livro {
 	@GeneratedValue
 	@Column(name="id_livro")
 	private Long idLivro;
+	
 	@NotNull(message = "Escritor Inválido")
 	@ManyToOne
 	@JoinColumn(name = "id_escritor")
@@ -40,6 +41,24 @@ public class Livro {
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
 	private Float valor;
 	
+	@NotEmpty(message="ISBN Inválido")
+	private String isbn;
+	
+	@NotEmpty(message="Editora Inválida")
+	private String editoraL;
+	
+	public String getIsbn() {
+		return isbn;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	public String getEditoraL() {
+		return editoraL;
+	}
+	public void setEditoraL(String editoraL) {
+		this.editoraL = editoraL;
+	}
 	public Long getIdLivro() {
 		return idLivro;
 	}
