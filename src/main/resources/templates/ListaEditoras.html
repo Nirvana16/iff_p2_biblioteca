@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+<section layout:fragment="conteudo">
+	<div layout:include="MensagemGeral"></div>
+
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Listagem de Editoras</h1>
+			<a class="btn btn-link aw-link-panel" th:href="@{/editoras/novo}">Cadastrar Editoras</a>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Telefone</th>
+						<th>CNPJ</th>
+						<th>Endereço</th>					
+						<th>Editar / Excluir</th>						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="editora : ${editoras}">
+						<td th:text="${editora.nome}">xxx</td>
+						
+						<td th:text="${editora.telefone}"></td>
+						<td th:text="${editora.cnpj}"></td>
+						<td th:text="${editora.endereco}"></td>
+						
+						<td><a th:href="@{/editoras/alterar/}+${editora.idEditora}"
+							class="glyphicon glyphicon-pencil"></a>
+							<span class="gambiarra">..............</span> 
+							<!-- Não me julguem, vou implantar 02 servidores no fim de semana
+								não vou ter tempo pra melhorar isso aqui então sou obrigado
+								a usar uma solução rapida. -->
+						<a class="btn btn-link btn-xs" data-toggle="modal"
+							data-target="#confirmacaoExclusaoModal"
+							th:attr="data-codigo=${editora.idEditora}, data-descricao=${editora.nome}, data-model='editora' "
+							title="Excluir" rel="tooltip" data-placement="top"> <span
+								class="glyphicon glyphicon-remove"></span>
+						</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div layout:include="DialogoConfirmacaoExclusao"></div>
+	</div>
+</section>
+</html>
