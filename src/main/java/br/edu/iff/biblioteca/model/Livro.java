@@ -2,11 +2,14 @@ package br.edu.iff.biblioteca.model;
 
 import java.util.Date;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -49,9 +52,16 @@ public class Livro {
 	@NotEmpty(message="ISBN Inválido")
 	private String isbn;
 	
-//	@NotEmpty(message="Editora Inválida")
-//	private String editoraLivroL;
+	@Lob
+	@Basic(fetch=FetchType.LAZY)
+	private byte[] image;
 	
+	public byte[] getImage() {
+		return image;
+	}
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
 	public Editora getEditora() {
 		return editoraLivro;
 	}
@@ -65,12 +75,7 @@ public class Livro {
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-//	public String getEditoraL() {
-//		return editoraLivroL;
-//	}
-//	public void setEditoraL(String editoraLivroL) {
-//		this.editoraLivroL = editoraLivroL;
-//	}
+
 	public Long getIdLivro() {
 		return idLivro;
 	}

@@ -16,6 +16,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+						<th>Foto</th>
 						<th>Titulo</th>
 						<th>Escritor</th>
 						<th>Editora</th>
@@ -28,6 +29,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="livro : ${livros}">
+						<td><img th:src="@{/livros/image/}+${livro.idLivro}" height="100" width="100" /></td>
 						<td th:text="${livro.nomeL}">xxx</td>
 						<td th:text="${livro.escritor.nome}">xxxxxx</td>
 						<td th:text="${livro.editora.nome}">xxxxxx</td>

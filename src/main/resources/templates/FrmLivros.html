@@ -6,9 +6,8 @@
 	
 <section layout:fragment="conteudo">
 	<div layout:include="MensagemGeral"></div>
-
-	<form class="form-horizontal" method="POST" th:action="@{/livros}"
-		th:object="${livro}">
+	
+	<form class="form-horizontal" method="POST" enctype="multipart/form-data" th:action="@{/livros}" th:object="${livro}">
 		<div layout:include = "MensagemErro"></div>
  		
 
@@ -88,6 +87,15 @@
 						</select>
 					</div>
 				</div>
+				<div class="form-group">
+					<label for="Imagem" class="col-sm-2 control-label">Imagem</label>
+					<div class="col-sm-2">
+						<input type="file" name="file" />
+					</div>
+				</div>
+				
+				
+				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button type="submit" class="btn btn-primary navbar-inverse">Salvar</button>

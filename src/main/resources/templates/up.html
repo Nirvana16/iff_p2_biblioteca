@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+<section layout:fragment="conteudo">
+	<div layout:include="MensagemGeral"></div>
+
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Listagem de Livros</h1>
+			<a class="btn btn-link aw-link-panel" th:href="@{/livros/novo}">Cadastrar Livros</a>
+		</div>
+		<div class="panel-body">
+		
+			<div th:if="${message}">
+				<h2 th:text="${message}"></h2>
+			</div>
+		
+			<div>
+				<form method="POST" enctype="multipart/form-data" action="/up">
+					<table>
+						<tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+						<tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+					</table>
+				</form>
+			</div>
+		
+			<div>
+				<ul>
+					<li th:each="file : ${files}">
+						<a th:href="${file}" th:text="${file}"></a>
+						<img th:src="${file}" height="100" width="100" />
+					</li>
+				</ul>
+			</div>			
+		</div>
+		<div layout:include="DialogoConfirmacaoExclusao"></div>
+	</div>
+</section>
+</html>
