@@ -5,7 +5,7 @@ Sistema de Gestão de Bibliotecas. Projeto realizado para a disciplina de Labora
 
 Trata-se de um mini sistema para gerenciamento de livros na Base de dados. Elaborado com o Framework Spring com a utilização da linguagem Java e outros recursos como: BootStrap JQuery Spring Security Spring Data Upload de Imagem
 
-Essa aplicação esta disponível em : https://iff2018-loo.herokuapp.com/ 
+Essa aplicação esta disponível em : https://bibliotecaiff.herokuapp.com/
 Observações:
 
 Usuario e senha para testes da aplicação: 
@@ -15,7 +15,7 @@ Senha: 1
 usuario: user  
 Senha : 1
 
-Levei algumas horas para perceber que havia feito todo meu projeto utilizado o empacotamento em WAR, essa forma ocasionou um erro de incompatibilidade no heroku resultando na falha ao startar a aplicação (Erro H10 e H14) Acabei tendo de mudar meu empacotamento para JAR de forma a ficar compatível com Drive indicado no meu Procfile.
+Levei algumas horas para perceber que havia feito todo meu projeto utilizado o empacotamento em WAR, essa forma ocasionou um erro de incompatibilidade no heroku resultando na falha ao startar a aplicação (Erro H10 e H14) Acabei tendo de mudar meu empacotamento para JAR de forma a ficar compatível com Drive indicado no meu Procfile. Atenção para o Procfile que também deve ser "Procfile" e nao "procfile"
 
 Mantive essa versão utilizando Mysql pois queria testar como funciona esse Banco de dados dentro do heroku com o ClearDBMySQL
 

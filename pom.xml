@@ -6,7 +6,6 @@
 	<groupId>br.edu.iff</groupId>
 	<artifactId>biblioteca</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
 
 	<name>iff_p2_biblioteca</name>
 	<description>Projeto Biblioteca - P2 IFF</description>
