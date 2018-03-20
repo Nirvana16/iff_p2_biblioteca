@@ -13,12 +13,14 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 public class Livro {
@@ -47,8 +49,10 @@ public class Livro {
 	@Temporal(TemporalType.DATE )
 	private Date dataL;
 	
-	@NotNull(message = "O valor Inválido")
-	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
+	@NotNull(message = "Valor não pode ficar em branco")
+	@DecimalMin(value = "0.01", message = "valor não pode ser zero")
+	@DecimalMax(value = "9999999.99", message="valor não pode ser maior que 9.999.999,99")
+	@NumberFormat(pattern = "#,##0.00")
 	private Float valor;
 	
 	@NotEmpty(message="ISBN Inválido")

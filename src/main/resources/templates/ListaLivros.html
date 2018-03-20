@@ -29,11 +29,15 @@
 				</thead>
 				<tbody>
 					<tr th:each="livro : ${livros}">
-						<td><img th:src="@{/livros/image/}+${livro.idLivro}" height="100" width="100" /></td>
+						<td>
+							<a th:href="@{/livros/image/}+${livro.idLivro}" data-lightbox="image-1">
+								<img th:src="@{/livros/image/}+${livro.idLivro}" height="100" width="100" />
+							</a>							
+							</td>
 						<td th:text="${livro.nomeL}">xxx</td>
 						<td th:text="${livro.escritor.nome}">xxxxxx</td>
 						<td th:text="${livro.editora.nome}">xxxxxx</td>
-						<td th:text="${livro.valor}">xx,xxx</td>
+						<td th:text="|R$ ${livro.valor}|">xx,xxx</td>
 						<td th:text="${livro.isbn}">xxx</td>
 						<td th:text="${livro.dataL}">xxxx-xx-xx</td>								
 						
