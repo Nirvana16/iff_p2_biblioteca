@@ -5,8 +5,7 @@ Sistema de Gestão de Bibliotecas. Projeto realizado para a disciplina de Labora
 
 Trata-se de um mini sistema para gerenciamento de livros na Base de dados. Elaborado com o Framework Spring com a utilização da linguagem Java e outros recursos como: BootStrap JQuery Spring Security Spring Data Upload de Imagem
 
-Essa aplicação esta disponível em : https://iff2018-loo.herokuapp.com/ Também existe uma versão no meu GitHub com o Deploy no heroku realizado com Postgree : https://github.com/Nirvana16/iff_p2_biblioteca
-
+Essa aplicação esta disponível em : https://iff2018-loo.herokuapp.com/ 
 Observações:
 
 Usuario e senha para testes da aplicação: 
