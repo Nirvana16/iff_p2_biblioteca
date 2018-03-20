@@ -1,11 +1,10 @@
 Versão em PostGree para o projeto biblioteca.
-https://github.com/Nirvana16/iff-p2-biblioteca-MYSQL
 
 Sistema de Gestão de Bibliotecas. Projeto realizado para a disciplina de Laboratório de Orientação a Objeto, IFF - Campus Centro - 2017.2
 
 Trata-se de um mini sistema para gerenciamento de livros na Base de dados. Elaborado com o Framework Spring com a utilização da linguagem Java e outros recursos como: BootStrap JQuery Spring Security Spring Data Upload de Imagem
 
-Essa aplicação esta disponível em : https://bibliotecaiff.herokuapp.com/
+Essa aplicação esta disponível em : https://bibliotecaiff.herokuapp.com/, também existe uma versão em MYSQL: https://github.com/Nirvana16/iff-p2-biblioteca-MYSQL
 Observações:
 
 Usuario e senha para testes da aplicação: 
